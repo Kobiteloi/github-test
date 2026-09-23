@@ -1,0 +1,17 @@
+- name: Manage system accounts
+  hosts: all
+  become: yes
+  vars:
+    system_users:
+      - name: dev_user1
+        groups: dev
+      - name: sys_admin
+        groups: wheel
+
+  tasks:
+    - name: Ensure users exist
+      ansible.builtin.user:
+        name: "{{ item.name }}"
+        groups: "{{ item.groups }}"
+        state: present
+      loop: "{{ system_users }}"
