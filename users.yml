@@ -16,5 +16,5 @@
         state: present
       loop: "{{ system_users }}"
 ################################
-#Ansible Trial Script###########
+#Ansible Trial Playbook ###########
 ################################
